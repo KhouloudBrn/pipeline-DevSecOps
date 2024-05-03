@@ -1,0 +1,20 @@
+# Ce ingress est crée pour recevoir les evenements transmis depuis le webhook 
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-resource
+  annotations:
+    spec.ingressClassName: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /webhooks
+            pathType: Exact
+            backend:
+              service:
+                name: eventlistener
+                port:
+                  number: 8080
+

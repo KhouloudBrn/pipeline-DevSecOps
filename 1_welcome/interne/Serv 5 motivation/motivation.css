@@ -1,0 +1,99 @@
+*{
+    padding: 0%;
+    margin: 0;
+    font-family: sans-serif;
+}
+.container {
+    background-color: rgb(105, 75, 192);
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+padding: 20px 0;}
+    .logo{
+        width: 40px;
+    }
+    header ul li  {
+        display: inline-block;
+
+    }
+    header ul li a {
+        text-decoration: none;
+        color: white;
+        margin:  0 10px;
+        font-weight: bold;
+    }
+
+    header ul li a {padding: 6px 15px;
+        border-radius: 20px;
+    
+    }
+    header ul li a:hover {
+        background: #fff;
+        color: #200016;
+    }
+
+
+
+
+
+
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+        
+    }
+    .content .text {
+        width: 40%;
+        color: white;
+    }
+    .content .text h2 {
+        font-size: 20px;
+    }
+    .content .text p {
+        font-size: 18 px;
+        margin : 20px 0 ;
+    }
+    .content .text a {
+        text-decoration: none;
+        background-color: white;
+        color: rgb(105, 75, 192);
+        padding: 8px 15PX ;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+    .content .image { width: 42%;
+    margin-left: 460px;
+    
+}
+.content .image img { border-radius: 50PX 5px;}
+   .icons { position: absolute;
+    bottom: 10px; left: 50%;
+    transform: translateX(-50%);
+}
+
+.icons img { width: 45Px; height: 45px;
+transition: 0.5s;
+cursor: pointer;
+border-radius: 10px;}
+
+.icons img:hover {
+    transform: scale(1.2);
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    
+}

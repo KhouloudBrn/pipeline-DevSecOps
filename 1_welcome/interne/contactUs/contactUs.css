@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+#contact-us {
+    padding: 50px 0;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    color: var(--text--color);
+    background: url(image/stars1.webp);
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+  }
+  
+  #contact-us h2 {
+    color: #333;
+    font-size: 2em;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .contact-info, .social-media {
+    margin-bottom: 30px;
+  }
+  
+  .social-media ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .social-media ul li {
+    display: inline-block;
+    margin-right: 10px;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideIn 1s forwards;
+  }
+  
+  .social-media ul li:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .social-media ul li:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes slideIn {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+.contact-info p:nth-child(2) i {
+    animation: bounce 1s infinite alternate; 
+  }
+  
+  .contact-info p:nth-child(3) i {
+    animation: rotate 1s infinite linear; 
+  }
+  
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+  }
+  
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+  a {
+    text-decoration: none;
+    color: white;
+}
+
+  header{position: fixed;
+    width: 95%;
+    z-index:100 ;
+    display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 30px;}
+
+
+header ul {display: flex;
+justify-content: center;
+align-items: center;
+list-style: none;}
+
+header ul li{
+    margin-right: 30px;
+}
+
+header ul li a {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+}
+
+
+header ul li a:hover{
+    background: white;
+    color : #200016;
+    
+}
+
+.logo{
+    height: 50px ;
+    width:50px ;
+    border-radius: 50%;
+}
+
+    
+  
+:root{
+    --bg--color:#2b3341;
+    --second-bg-color:#455269;
+    --text--color:#fff;
+    --main-color:#46669c ;
+  }
+  body{
+    background-color: var(--bg--color);
+  
+  }
+  .social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    width: 4rem;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color:  var(--main-color);
+    margin:  3rem 1.5rem 3rem 0;
+  
+  
+  }
+  
+  .social-media a:hover{
+    background: var(--main-color);
+    color: var(--second-bg-color);
+    box-shadow:  0 0 1rem var(--main-color);
+    transition: 1s ease;
+  
+  }
+  
+  p{font-size: 1.6rem;}
+  h1{
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }  

@@ -1,0 +1,70 @@
+body{
+    
+    background: linear-gradient(#500237,#22023f);
+    height: 100vh;
+    
+    
+}
+
+section{background: url('stars1.png');
+    background-size: cover;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.quizContainer {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+    border-radius: 6px;
+    padding: 10px 25px;
+
+    background: linear-gradient(#740952,#300557);
+    backdrop-filter: blur (25px);
+    border: 1px solid #500237 ;
+
+}
+
+h1 {
+    font-size: 50px;
+    color: #7a0d5f;
+    
+    -webkit-text-stroke:0.2px white;
+}
+
+.submit {
+    background-color: #b5088a;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #de16ac;
+}
+.buttonquiz{ text-decoration: none;
+color: white;}
+
+.buttonBack{text-decoration: none;
+    color: white;}
+    .butonCree {text-decoration: none;
+      color: white;}
+     
+.buttonBack {margin-left: -1200px;
+  border-radius: 50%;}
+  .butBack{text-decoration: none;
+  }
+
+  #quiz{color: white;
+
+    -webkit-text-stroke:0.1px cyan;}
+    #result {color: white;
+
+        -webkit-text-stroke:0.1px cyan;}

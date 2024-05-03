@@ -1,0 +1,100 @@
+body{
+    
+    background: linear-gradient(#500237,#22023f);
+    height: 100vh;
+    
+    
+}
+
+section{background: url('stars1.png');
+    background-size: cover;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.popup-info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 500px;
+    border-radius: 6px;
+    padding: 10px 25px;
+
+    background: linear-gradient(#740952,#300557);
+    backdrop-filter: blur (25px);
+    border: 1px solid #500237 ;
+
+    
+}
+
+.popup-info h2{
+    font-size: 50px;
+    color: #7a0d5f;
+    
+    -webkit-text-stroke:0.2px white;
+}
+
+.popup-info .info{
+    display: inline-block;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    margin: 4px 0;
+
+}
+
+.popup-info .btn-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top:1px solid #999 ;
+    margin-top: 10px;
+    padding: 15px 0 7px;
+
+}
+
+.popup-info .btn-group .info-btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 45px;
+    background: #7a0d5f ;
+    border: 2px solid #7a0d5f ;
+    outline: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    box-shadow:  0 0 10px  rgba(0, 0, 0,.1);
+    cursor: pointer;
+transition: 0.5s;
+}
+
+
+.popup-info .btn-group .info-btn:nth-child(1){
+    background: transparent;
+    color:#b5088a ;
+}
+
+
+.popup-info .btn-group .info-btn:nth-child(1):hover{
+    background: #b5088a;
+    color:white ;
+}
+
+
+
+.popup-info .btn-group .info-btn:nth-child(2):hover{
+ background: #b5088a;
+ border-color: #b5088a;   
+}
+
+
+span{
+    -webkit-text-stroke:0.1px cyan;}
