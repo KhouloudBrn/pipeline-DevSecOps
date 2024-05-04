@@ -35,7 +35,7 @@ spec:
       workspaces:
         - name: source                                               
           workspace: shared-data         
-          subPath: /1_welcome
+          subPath: 1_welcome
         - name: dockerconfig                                                     
           workspace: docker-credentials                                       
       params:                                                                
@@ -48,7 +48,7 @@ spec:
       workspaces:
         - name: source                                                           
           workspace: shared-data                                                 
-          subPath: "/1_welcome/interne/Serv 6 chatbot/chatbot-main/chatbot-main"
+          subPath: "1_welcome/interne/Serv 6 chatbot/chatbot-main/chatbot-main"
         - name: dockerconfig                                                      
           workspace: docker-credentials                                           
       params:                                                               
@@ -61,7 +61,7 @@ spec:
       workspaces:
         - name: source                                               
           workspace: shared-data                                                
-          subPath: /back
+          subPath: back
         - name: dockerconfig                                     
           workspace: docker-credentials       
       params:                                                                  
