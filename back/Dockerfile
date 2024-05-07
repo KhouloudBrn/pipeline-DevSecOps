@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install git -y
 RUN git clone https://github.com/KhouloudBrn/pipeline-DevSecOps.git
 
 WORKDIR /pipeline-DevSecOps/back
-RUN rm -rf node_modules package-lock.json
+
 RUN npm install
 
 COPY --chown=node:node . .
