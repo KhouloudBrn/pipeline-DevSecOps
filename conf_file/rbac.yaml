@@ -22,7 +22,7 @@ metadata:
 subjects:
 - kind: ServiceAccount                                                     # Type du sujet : Compte de service
   name: tekton-triggers-test                                               # Nom du compte de service
-  namespace: default                                                       # Espace de noms du compte de service
+  namespace: pfe
 roleRef:
   apiGroup: rbac.authorization.k8s.io                                      # Groupe d'API du rôle
   kind: ClusterRole                                                        # Type de rôle : Rôle de cluster

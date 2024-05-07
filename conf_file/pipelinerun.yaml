@@ -1,6 +1,7 @@
 apiVersion: tekton.dev/v1beta1                                                 # Version de l'API Tekton utilisée
 kind: PipelineRun                                                              # Type d'objet : Exécution de pipeline
 metadata:
+  namespace: pfe
   generateName: our-pipeline-ci-cd-run-                                          # Préfixe pour les noms générés des exécutions de pipeline
 spec:
   pipelineRef:                                                                 # Référence au pipeline à exécuter
@@ -24,8 +25,8 @@ spec:
     - name: repo-url                                                           # Nom du paramètre pour l'URL du dépôt
       value: https://github.com/KhouloudBrn/pipeline-DevSecOps.git                             # Valeur de l'URL du dépôt
     - name: image-reference-front                                                   # Nom du paramètre pour la référence d'image
-      value: tidix/public:image-frontend                                            # Valeur de la référence d'image
+      value: tidix/public:frontend_image                                         # Valeur de la référence d'image
     - name: image-reference-api                                                  # Nom du paramètre pour la référence d'image
-      value: tidix/public:image-api
+      value: tidix/public:api_image
     - name: image-reference-back                                                 # Nom du paramètre pour la référence d'image
-      value: tidix/public:image-backend
+      value: tidix/public:backend_image

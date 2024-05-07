@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: yourimaginaryfriend
-  namespace: production
+  name: frontend-deployment
+  namespace: pfe
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: front-end
@@ -14,8 +15,7 @@ spec:
     spec:
       containers:
       - name: front-end
-        image: "tidix/public:frontend"
-        imagePullPolicy: IfNotPresent
+        image: "tidix/public:frontend_image"
         resources:
           limits:
             memory: "128Mi"
@@ -24,49 +24,115 @@ spec:
         - containerPort: 80
 
 ---
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: pfe
+  labels:
+    app: back-end
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: back-end
+  template:
+    metadata:
+      labels:
+        app: back-end
+    spec:
+      containers:
+      - name: back-end
+        image: "tidix/public:backend_image"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: pfe
+  labels:
+    app: api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: "tidix/public:api_image"
+        envFrom:
+        - configMapRef:
+            name: open_ai_api_key
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
+---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
     app: front-end
-  name: service-nodeport
-  namespace: production
+  name: service-frontend
+  namespace: pfe
 spec:
   ports:
-  - name: 80-80
-    nodePort: 30008
+  - name: http
     port: 80
     protocol: TCP
     targetPort: 80
   selector:
     app: front-end
-  type: NodePort
+  type: ClusterIP
 
 ---
-
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: v1
+kind: Service
 metadata:
-  name: my-nginx-ingress-controller
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
   labels:
-    app: front-end
+    app: back-end
+  name: service-backend
+  namespace: pfe
 spec:
-  tls:
-  - hosts:
-    - yourimaginaryfriend.local
-    secretName: certificat-tls
-  rules:
-  - host: yourimaginaryfriend.local
-    http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
-            name: service-nodeport
-            port:
-              number: 80
+  ports:
+  - name: http
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: front-end
+  type: ClusterIP
+  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: api
+  name: service-api
+  namespace: pfe
+spec:
+  ports:
+  - name: http
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: api
+  type: ClusterIP  
+        
+          
 

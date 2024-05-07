@@ -1,7 +1,8 @@
 apiVersion: tekton.dev/v1beta1                                                    
 kind: Pipeline                                                                   
 metadata:
-  name: clone-build-push                                   
+  name: clone-build-push  
+  namespace: pfe                                 
 spec:
   description: |                                                      
     Cet espace de travail contient les fichiers du dépôt clonés, afin qu'ils puissent être lus par le
@@ -66,4 +67,5 @@ spec:
           workspace: docker-credentials       
       params:                                                                  
         - name: IMAGE                                                         
-          value: $(params.image-reference-back)                                        
+          value: $(params.image-reference-back)                                       
+                                      

@@ -6,6 +6,7 @@ kind: ClusterIssuer
 metadata:
   # Nom de l'émetteur
   name: letsencrypt-production
+  namespace: pfe
 
 # Spécification de l'émetteur
 spec:

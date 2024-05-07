@@ -3,6 +3,7 @@ apiVersion: triggers.tekton.dev/v1alpha1                  # Version de l'API Tek
 kind: EventListener                                       # Type d'objet : Écouteur d'événements
 metadata:
   name: github-listener                                   # Nom de l'écouteur d'événements
+  namespace: pfe
 spec:
   triggers:                                               # Définition des déclencheurs d'événements
     - name: github-listener                               # Nom du déclencheur
@@ -38,7 +39,8 @@ spec:
 apiVersion: triggers.tekton.dev/v1alpha1                  # Version de l'API Tekton utilisée
 kind: TriggerBinding                                      # Type d'objet : Liaison de déclencheur
 metadata: 
-  name: github-push-binding                               # Nom de la liaison de déclencheur
+  name: github-push-binding 
+  namespace: pfe                              # Nom de la liaison de déclencheur
 spec:
   params:                                                 # Paramètres de la liaison de déclencheur
     - name: gitrevision                                   # Nom du paramètre pour la révision Git
@@ -50,6 +52,7 @@ apiVersion: triggers.tekton.dev/v1alpha1                  # Version de l'API Tek
 kind: TriggerTemplate                                     # Type d'objet : Modèle de déclencheur
 metadata:
   name: github-template                                   # Nom du modèle de déclencheur
+  namespace: pfe
 spec:
   params:                                                 # Paramètres du modèle de déclencheur
     - name: gitrevision                                   # Nom du paramètre pour la révision Git
