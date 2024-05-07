@@ -2,6 +2,7 @@
 FROM python:3.9-slim
 RUN apt-get update && apt-get install git -y
 RUN python -m venv .venv && . .venv/bin/activate
+RUN pip install --upgrade pip
 RUN pip install python-dotenv
 RUN git clone https://github.com/KhouloudBrn/pipeline-DevSecOps.git
 # Copiez les fichiers nécessaires dans le conteneur
