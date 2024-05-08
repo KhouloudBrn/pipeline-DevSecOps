@@ -26,7 +26,7 @@ spec:
       value: https://github.com/KhouloudBrn/pipeline-DevSecOps.git                             # Valeur de l'URL du dépôt
     - name: image-reference-front                                                   # Nom du paramètre pour la référence d'image
       value: tidix/public:frontend_image                                         # Valeur de la référence d'image
-    - name: image-reference-api                                                  # Nom du paramètre pour la référence d'image
-      value: tidix/public:api_image
     - name: image-reference-back                                                 # Nom du paramètre pour la référence d'image
       value: tidix/public:backend_image
+    - name: image-reference-api                                                  # Nom du paramètre pour la référence d'image
+      value: tidix/public:api_image
