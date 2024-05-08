@@ -42,19 +42,7 @@ spec:
       params:                                                                
         - name: IMAGE                                                           
           value: $(params.image-reference-front)      
-    - name: build-and-push-api                                                      
-      runAfter: ["build-and-push-front-end"]                                           
-      taskRef:
-        name: kaniko                   
-      workspaces:
-        - name: source                                                           
-          workspace: shared-data                                                 
-          subPath: "1_welcome/interne/Serv 6 chatbot/chatbot-main/chatbot-main"
-        - name: dockerconfig                                                      
-          workspace: docker-credentials                                           
-      params:                                                               
-        - name: IMAGE                                                         
-          value: $(params.image-reference-api)                                        
+                                            
     - name: build-and-push-backend                                                       
       runAfter: ["build-and-push-api"]                       
       taskRef:
@@ -67,5 +55,34 @@ spec:
           workspace: docker-credentials       
       params:                                                                  
         - name: IMAGE                                                         
-          value: $(params.image-reference-back)                                       
+          value: $(params.image-reference-back) 
+    - name: build-and-push-api                                                      
+      runAfter: ["build-and-push-front-end"]                                           
+      taskRef:
+        name: kaniko                   
+      workspaces:
+        - name: source                                                           
+          workspace: shared-data                                                 
+          subPath: "1_welcome/interne/Serv 6 chatbot/chatbot-main/chatbot-main"
+        - name: dockerconfig                                                      
+          workspace: docker-credentials                                           
+      params:                                                               
+        - name: IMAGE                                                         
+          value: $(params.image-reference-api)
+
+    - name: deployment                                                       
+      runAfter: ["build-and-push-backend"]                       
+      taskRef:
+        name: helm-upgrade-from-repo                                                     
+      params:                                                                  
+        - name: helm_repo
+          value: 
+        - name: chart_name
+          value: ...../....
+        - name: release_version
+          value: .....
+        - name: release_name
+          value: .....
+        - name: overwrite_values
+          value: autoscaling.enabled=true,autoscaling.maxReplicas=3                                      
                                       
