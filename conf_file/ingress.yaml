@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   name: my-nginx-ingress-controller
   namespace: pfe
-  spec.ingressClassName: nginx
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
